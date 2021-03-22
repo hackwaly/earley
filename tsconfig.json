@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "strict": true,
+        "outDir": "out",
+        "moduleResolution": "node",
+        "module": "CommonJS",
+        "sourceMap": true
+    }
+}

@@ -23,7 +23,7 @@ export function defineGrammar(f: () => void): Grammar {
 }
 
 export function defineRule(lhs: Symbol, rhs: Symbol[], userdata?: any) {
-    if (context.startNT === null) {
+    if (context.startNT === null && !(userdata instanceof GeneratedRuleUserdata)) {
         context.startNT = lhs;
     }
     context.builder.addRule(new Rule(lhs, rhs, userdata));

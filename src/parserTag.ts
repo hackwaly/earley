@@ -35,7 +35,7 @@ export function createParserTag({ templateParser, Parser }: CreateParserTagOptio
                         if (token === 'ε') {
                             yield { symbol: 'epsilon', data: token };
                         } else if (token.startsWith("__ACTION_")) {
-                            yield { symbol: "action", data: userdatas[parseInt(token.slice("__ACTION_".length))]! };
+                            yield { symbol: "action", data: userdatas[parseInt(token.slice("__ACTION_".length)) - 1]! };
                         } else if (/^[→+*?]$/.test(token)) {
                             yield { symbol: token, data: token };
                         } else {

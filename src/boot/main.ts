@@ -8,7 +8,7 @@ import { parserTag } from "./parserTag";
 // `;
 // const source = "a+a*a";
 const parser = parserTag`
-    S -> a* ${(d: any) => {debugger}}
+    S -> a* ${($) => {debugger}}
 `;
 const source = "aaa";
 parseStringScannerless(parser, source);

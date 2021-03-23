@@ -1,5 +1,4 @@
-import { Grammar, Symbol } from './cfg';
-import { EarleySet } from './earley';
+import { Grammar, Symbol } from '../core/cfg';
 
 export interface IParserClass {
     new<T>(grammar: Grammar): IParser<T>;
@@ -15,11 +14,8 @@ export interface IParser<T> {
 
 export function parseGeneric<T>(parser: IParser<T>, source: Iterable<{symbol: Symbol, data: any}>): T {
     let state = parser.newStartState();
-    // console.log((state as EarleySet).items.flatMap(it => it.state.items).join('\n'));
     for (const input of source) {
-        // console.log(`input symbol:${input.symbol} data:${input.data}`);
         state = parser.advance(state, input.symbol, input.data);
-        // console.log((state as EarleySet).items.flatMap(it => it.state.items).join('\n'));
     }
     return parser.finish(state);
 }

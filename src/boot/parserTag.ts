@@ -1,4 +1,4 @@
-import { Grammar } from "./cfg";
+import { Grammar } from "../core/cfg";
 import templateParser from "./bootTemplateParser";
 import { IParser, IParserClass, parseGeneric } from "./parser";
 import { BootDSLParser, defineGrammar } from "./dsl";
@@ -13,8 +13,8 @@ export const DEFAULT_OPTIONS: CreateParserTagOptions = {
     Parser: BootDSLParser,
 };
 
-export function createParserTag({ templateParser, Parser }: CreateParserTagOptions = DEFAULT_OPTIONS) {
-    return <T>(parts: TemplateStringsArray, ...userdatas: any[]): IParser<T> => {
+export function createParserTag<P>({ templateParser, Parser }: CreateParserTagOptions = DEFAULT_OPTIONS) {
+    return <T>(parts: TemplateStringsArray, ...userdatas: P[]): IParser<T> => {
         let buf = ``;
         parts.forEach((part, index) => {
             if (index !== 0) {
@@ -49,4 +49,4 @@ export function createParserTag({ templateParser, Parser }: CreateParserTagOptio
     };
 }
 
-export const parserTag = createParserTag(DEFAULT_OPTIONS);
+export const parserTag = createParserTag<($: any[]) => any>(DEFAULT_OPTIONS);

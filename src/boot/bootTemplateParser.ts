@@ -1,4 +1,4 @@
-import { Grammar } from "./cfg";
+import { Grammar } from "../core/cfg";
 import { BootDSLParser, defineGrammar, defineRule, plus, question, star } from "./dsl";
 
 const tempateGrammar = defineGrammar(() => {

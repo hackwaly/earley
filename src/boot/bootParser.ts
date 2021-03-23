@@ -1,8 +1,8 @@
-import { AHFA, buildAHFA } from "./ahfa";
-import { Symbol, Grammar, Rule } from "./cfg";
-import { advance, EarleySet, finish, newStartSet } from "./earley";
-import { Comparator, computeRuleIndexMap } from "./misc";
-import { NNFGrammar, nnfTransform } from "./nnf";
+import { AHFA, buildAHFA } from "../core/ahfa";
+import { Symbol, Grammar, Rule } from "../core/cfg";
+import { advance, EarleySet, finish, newStartSet } from "../core/earley";
+import { Comparator, computeRuleIndexMap } from "../core/misc";
+import { NNFGrammar, nnfTransform } from "../core/nnf";
 import { IParser, ParserState } from "./parser";
 
 export class BootParser<T> implements IParser<T> {

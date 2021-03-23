@@ -1,5 +1,5 @@
 import { BootParser } from "./bootParser";
-import { Symbol, Rule, Grammar, GrammarBuilder } from "./cfg";
+import { Symbol, Rule, Grammar, GrammarBuilder } from "../core/cfg";
 import { Cons, isList, List, NIL } from "./list";
 
 type BuildContext = {
